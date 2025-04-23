@@ -1,6 +1,6 @@
 import PostCard from "./PostCard"
 import { useContext } from "react"
-import GlobalContex from "../contex/GlobContex"
+import { GlobalContex } from "../contex/GlobContex"
 
 function PostList() {
     const { postList } = useContext(GlobalContex)

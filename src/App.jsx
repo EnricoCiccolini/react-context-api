@@ -1,40 +1,15 @@
-import { useEffect, useState } from "react"
-import PostPage from "./assets/PostPage"
-import GlobalContex from "./contex/GlobContex"
-
-
-
-
-
-
-
+import { useEffect, useState } from "react";
+import PostPage from "./assets/PostPage";
+import { GlobalContexProvider } from "./contex/GlobContex";
 
 function App() {
-
-  const [postList, setPostList] = useState([])
-
-  function CalPost() {
-
-
-
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then(response => response.json())
-      .then(json => setPostList(json))
-  }
-
-
-  useEffect(() => {
-    CalPost()
-  }, [])
-
-  const GlobalProvaiderValue = { postList }
   return (
     <>
-      <GlobalContex.Provider value={GlobalProvaiderValue}>
+      <GlobalContexProvider>
         <PostPage />
-      </GlobalContex.Provider>
+      </GlobalContexProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
